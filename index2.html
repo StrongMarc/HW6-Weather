@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <main class="col-9"> <!-- Right side page -->
+      <!-- Bootstrap Card - Titles, text and links -->
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h2 id="forcast" class="card-title1"></h2>
+          
+          <script type="text/javascript">
+            // var cityText = "Chicago";
+            // var unit = "&units=imperial"
+            // var key = "cedb9c57ccdd0a6a3213271aa94438a7"
+            // var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityText + unit + "&appid=" + key;
+            // // var iconURL = "http://openweathermap.org/img/wn/10d@2x.png"
+            // $.ajax({
+            //   url: queryURL,
+            //   method: "GET"
+            // }).then(function(response) {
+            //     $(`#forcast`).html(`
+            //       <h2>${ response.name }</h2>
+            //       <p>Temperature: ${ response.main.temp }</p>
+            //       <p>Humidity: ${ response.main.humidity }</p>
+            //       <p>Wind Speed: ${ response.wind.speed }</p>
+            //       <p>Wind Speed: ${ response.coord.lon }</p>
+            //     `)
+            //     var lon= $( response.coord.lon)
+            //     var lat= $( response.coord.lat )
+            //     var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat[0] + "&lon=" + lon[0];
+            //     alert(uvURL)
+                
+            //     $.ajax({
+            //       url: queryURL,
+            //       method: "GET"
+            //     }).then(function(response) {
+            //     $(`#forcast`).html(`
+            //       <h2>${ response.name }</h2>
+            //       <p>Temperature: ${ response.main.temp }</p>
+            //       <p>Humidity: ${ response.main.humidity }</p>
+            //       <p>Wind Speed: ${ response.wind.speed }</p>
+            //       <p>Wind Speed: ${ response.coord.lat }</p>
+            //     `)
+            //   })
+            // })
+                // $.ajax({
+                //   url: uvURL,
+                //   method: "GET"
+                // }).then(function(response) {
+                //   $(`.card-title`).html(`
+                //     <h2>${ response.name }</h2>
+                //     <p>Temperature: ${ response.main.temp }</p>
+                //     <p>Humidity: ${ response.main.humidity }</p>
+                //     <p>Wind Speed: ${ response.main.humidity }</p>
+                //   `)
+              // create variables for card
+              // var card = $('<p>')
+              // var cityText = $('<p>' + response.name + '</p>')
+              // var temperature= $('<p>' + response.main.temp + '</p>')
+              // var humidity= $('<p>' + response.main.humidity + '</p>')
+              // var wind= $('<p>' + response.wind.speed + '</p>')
+              // var lon= $('<p>' + response.coord.lon + '</p>')
+              // var lat= $('<p>' + response.coord.lat + '</p>')
+
+              // append variables to card
+              // $(card).append($(cityText))
+              // $(card).append($(temperature))
+              // $(card).append($(humidity))
+              // $(card).append($(wind))
+              // $(card).append($(lon))
+              // $(card).append($(lat))
+              // getUV(lon, lat)
+              // $('.card-title').append($(card))
+              // $('p:first').append($(card))
+              
+            // });
+
+            // function getUV(lon, lat){
+            //   var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat + "&lon=" + lon;
+            //   $.ajax({
+            //   url: uvURL,
+            //   method: "GET"
+            // }).then(function(responseUV) {
+
+            //   // create variables for card
+            //   // var card = $('<p>')
+            //   var uvIndex = $('<p>' + responseUV.value + '</p>')
+            //   return $(card).append($(uvIndex))
+            // })
+            // }
+          </script>
+          <br>
+          <p id="temp" class="card-text"></p>
+          <p id="humidity" class="card-text"></p>
+          <p id="wind" class="card-text"></p>
+          <p id="uvIndex" class="card-text"></p>
+        </div>
+      </div>
+
+      <h2>5-Day Forecast:</h2>
+      <!-- Bootstrap Card groups & Card Styles -->
+      <!-- Tomorrow's forecast -->
+     
+    </main>  <!-- End Right side page -->
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
+  
+</body>
+
+</html>

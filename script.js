@@ -1,23 +1,45 @@
-/* <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> */
+$(document).ready(function() {
+   
+  forecast()
 
- var customer = {
-        firstName: "John",
-        lastName: "Smith",
-        age: 25,
-        address: {
-          streetAddress: "21 2nd Street",
-          city: "New York",
-          state: "NY",
-          postalCode: "10021"
-        },
-        phoneNumber: [{
-          type: "home",
-          number: "212 555-1234"
-        }, {
-          type: "fax",
-          number: "646 555-4567"
-        }]
-      };
-      console.log(customer.firstName)
-    console.log(customer["firstName"])
+    function forecast() {
+        var cityText = "Chicago";
+        var unit = "&units=imperial"
+        var key = "cedb9c57ccdd0a6a3213271aa94438a7"
+        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityText + unit + "&appid=" + key;
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+          }).then(function(response) {
+            $(`#forcast`).html(`
+                <h2>${ response.name }</h2>
+            `)
+            
+            $(`#temp`).html(`
+              <p>Temperature: ${ response.main.temp }</p>
+            `)
+
+            $(`#humidity`).html(`
+              <p>Humidity: ${ response.main.humidity }</p>
+            `)
+            
+            $(`#wind`).html(`
+              <p>Wind Speed: ${ response.wind.speed }</p>
+            `)
+          
+          var lon= $( response.coord.lon)
+          var lat= $( response.coord.lat )
+          var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat[0] + "&lon=" + lon[0];
+          $.ajax({
+            url: uvURL,
+            method: "GET"
+            }).then(function(responseUV) {
+              $(`#uvIndex`).html(`
+                <p>UV Index: ${ responseUV.value }</p>
+              `)
+            });    
+        });
+    }
+});
+      
     
