@@ -1,119 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="./style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 
-  <title>Weather Dashboard</title>
-</head>
-
-<body>
-  
-  <section class="container-fluid main-content">
-    <!-- Web page header -->
-    <header class="header">
-      <div class="row">
-        <h1 class="col-3"></h1>
-        <h1 class="col-9">Weather Dashboard</h1>
-      </div>
-    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-    
-    <main class="col-9">
-      <!-- Bootstrap Card - Titles, text and links -->
-      <div class="card" style="width: 100%;">
-        <div class="card-body">
-          <h2 class="card-title">City</h2>
-          <br>
-          <p class="card-text">Temperature:</p>
-          <p class="card-text">Humidity:</p>
-          <p class="card-text">Wind Speed:</p>
-          <p class="card-text">UV Index:</p>
-        </div>
-      </div>
+    <title>Weather Dashboard</title>
+  </head>
 
-      <h2>5-Day Forecast:</h2>
-      <!-- Bootstrap Card - Titles, text and links -->
-      <section class="card-group">
-      <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <body>  
+    
+    <section class="container-fluid"> 
+      <!-- Web page header -->
+      <header class="header">
+        <div class="row">
+          <h1 class="col">Weather Dashboard</h1>
         </div>
-      </div>
+      </header>
       
-      <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-
-      <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-
-      <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-
-      <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
+      <main class="col-9"> <!-- Right side page -->
+        <!-- Bootstrap Card - Titles, text and links -->
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h2 class="card-title"></h2>
+            <script type="text/javascript">
+              // The below code fills in the first row of the table
+              var cityText = "Chicago";
+              var unit = "&units=imperial"
+              var key = "cedb9c57ccdd0a6a3213271aa94438a7"
+              var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityText + unit + "&appid=" + key;
           
-    </section>
-    </main>
-    
-   
-    <aside class="col-3">
-       <!-- Bootstrap form -->
-      <form>
-        <div class="form-group row">
-          <label for="exampleInputPassword1">Search for a City:</label>
-          <div class="col-auto">
-            <input type="text" class="form-control" id="inputCity">
+              $.ajax({
+                url: queryURL,
+                method: "GET"
+              }).then(function(response) {
+          
+                // Create and save a reference to new empty table row
+                var card = $('<p>')
+                var cityText = $('<p>' + response.name + '</p>')
+                var temperature= $('<p>' + response.main.temp + '</p>')
+                // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
+                // Append the td elements to the new table row
+                $(card).append($(cityText))
+                $(card).append($(temperature))
+                // Append the table row to the tbody element
+                $('.card-title').append($(card))
+                $('p:first').append($(card))
+              });
+            </script>
+            <br>
+            <p class="card-text">Temperature:</p>
+            <p class="card-text">Humidity:</p>
+            <p class="card-text">Wind Speed:</p>
+            <p class="card-text">UV Index:</p>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-      
         </div>
-      </form>
 
+        <h2>5-Day Forecast:</h2>
+        <!-- Bootstrap Card groups & Card Styles -->
+        <!-- Tomorrow's forecast -->
+        <section class="card-group">  <!-- 5 day cards -->
+          <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          
+          <!-- Forecast in 2 days-->
+          <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
 
-       <!-- Bootstrap list group - links and buttons -->
-      <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active">Ausin</a>
-        <a href="#" class="list-group-item list-group-item-action">Chicago</a>
-        <a href="#" class="list-group-item list-group-item-action">New York</a>
-        <a href="#" class="list-group-item list-group-item-action">Orlando</a>
-      </div>
-    </aside>
+          <!-- Forecast in 3 days-->
+          <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
 
-  </section>
+            <!-- Forecast in 4 days-->
+          <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="./script.js"></script>
-</body>
+          <!-- Forecast in 5 days-->
+          <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </section>  <!-- End 5 day cards -->
+      </main>  <!-- End Right side page -->
+      
+      <aside class="col-3">  <!-- Left side page -->
+        <!-- Bootstrap form -->
+        <form>
+          <div class="form-group row">
+            <label for="exampleInputPassword1">Search for a City:</label>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          
+          </div>
+        </form>
+
+        <!-- Bootstrap list group - links and buttons -->
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">Ausin</a>
+          <a href="#" class="list-group-item list-group-item-action">Chicago</a>
+          <a href="#" class="list-group-item list-group-item-action">New York</a>
+          <a href="#" class="list-group-item list-group-item-action">Orlando</a>
+        </div>
+      </aside>  <!-- End left side page -->
+
+    </section> <!-- End container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
+  
+  </body>
 </html>
