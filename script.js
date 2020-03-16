@@ -1,5 +1,16 @@
 $(document).ready(function() {
    
+  var cities = ["Chicago", "New York"];
+  // function to display cities
+  console.log(cities)
+  function rendercity() {
+    $(`#cityList`).empty()
+    cities.forEach(function(cities){
+        let btn = $(`<button> ${ cities } </button>`)
+        $(`#cityList`).append(btn)
+    })
+  }
+  rendercity()
   forecast()
 
     // Function to retrieve forcast data and display in main card above
