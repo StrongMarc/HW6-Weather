@@ -16,15 +16,15 @@ $(document).ready(function() {
             `)
             
             $(`#temp`).html(`
-              <p>Temperature: ${ response.main.temp }</p>
+              <p>Temperature: ${ response.main.temp } <sup>o</sup>F</p>
             `)
 
             $(`#humidity`).html(`
-              <p>Humidity: ${ response.main.humidity }</p>
+              <p>Humidity: ${ response.main.humidity }%</p>
             `)
             
             $(`#wind`).html(`
-              <p>Wind Speed: ${ response.wind.speed }</p>
+              <p>Wind Speed: ${ response.wind.speed } MPH</p>
             `)
           
           var lon= $( response.coord.lon)
@@ -39,7 +39,41 @@ $(document).ready(function() {
               `)
             });    
         });
+        fiveDayForecast()
     }
+
+    function fiveDayForecast() {
+      var cityText = "Chicago";
+      var unit = "&units=imperial"
+      var key = "cedb9c57ccdd0a6a3213271aa94438a7"
+      var fiveDayURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityText + unit + "&appid=" + key;
+      $.ajax({
+        url: fiveDayURL,
+        method: "GET"
+        }).then(function(responseForcast) {
+          $(`#day1`).html(`
+              <h5>${ responseForcast.list[5].dt_txt.slice(5, 7) }/${ responseForcast.list[5].dt_txt.slice(8, 10) }/${ responseForcast.list[5].dt_txt.slice(0, 4) }</h5>
+          `)
+          
+          $(`#day2`).html(`
+              <h5>${ responseForcast.list[13].dt_txt.slice(5, 7) }/${ responseForcast.list[13].dt_txt.slice(8, 10) }/${ responseForcast.list[13].dt_txt.slice(0, 4) }</h5>
+          `)
+
+          $(`#day3`).html(`
+              <h5>${ responseForcast.list[21].dt_txt.slice(5, 7) }/${ responseForcast.list[21].dt_txt.slice(8, 10) }/${ responseForcast.list[21].dt_txt.slice(0, 4) }</h5>
+          `)
+
+          $(`#day4`).html(`
+              <h5>${ responseForcast.list[29].dt_txt.slice(5, 7) }/${ responseForcast.list[29].dt_txt.slice(8, 10) }/${ responseForcast.list[29].dt_txt.slice(0, 4) }</h5>
+          `)
+
+          $(`#day5`).html(`
+              <h5>${ responseForcast.list[37].dt_txt.slice(5, 7) }/${ responseForcast.list[37].dt_txt.slice(8, 10) }/${ responseForcast.list[37].dt_txt.slice(0, 4) }</h5>
+          `)
+      });
+  }
 });
+
+
       
     
