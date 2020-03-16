@@ -25,6 +25,11 @@ main {
     float: right;
 }
 
+section {
+  text-align: left;
+  margin: 20px;
+}
+
 #uvIndex{
   display: inline-block;
 }

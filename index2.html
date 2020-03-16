@@ -37,49 +37,57 @@
       <h2>5-Day Forecast:</h2>
       <!-- Bootstrap Card groups & Card Styles -->
       <!-- Tomorrow's forecast -->
-      <section class="card-group">  <!-- 5 day cards -->
-        <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+      <div class="card-group">  <!-- 5 day cards -->
+        <section class="card text-white bg-primary mb-3" style="max-width: 20%;">
           <!-- <div class="card-header">Header</div> -->
           <div class="card-body">
             <h5 id="day1" class="card-title"></h5>
+            <img id="day1Icon" alt="Weather Icon" >
             <p id="day1Temp" class="card-text"></p>
-            <br>
             <p id="day1Hum" class="card-text"></p>
           </div>
-        </div>
+        </section>
         
         <!-- Forecast in 2 days-->
-        <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+        <section class="card text-white bg-primary mb-3" style="max-width: 20%;">
           <div class="card-body">
             <h5 id="day2" class="card-title"></h5>
-            <p class="card-text"></p>
+            <img id="day2Icon" alt="Weather Icon" >
+            <p id="day2Temp" class="card-text"></p>
+            <p id="day2Hum" class="card-text"></p>
           </div>
-        </div>
+        </section>
 
         <!-- Forecast in 3 days-->
-        <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+        <section class="card text-white bg-primary mb-3" style="max-width: 20%;">
           <div class="card-body">
             <h5 id="day3" class="card-title"></h5>
-            <p class="card-text"></p>
+            <img id="day3Icon" alt="Weather Icon" >
+            <p id="day3Temp" class="card-text"></p>
+            <p id="day3Hum" class="card-text"></p>
           </div>
-        </div>
+        </section>
 
           <!-- Forecast in 4 days-->
-        <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+        <section class="card text-white bg-primary mb-3" style="max-width: 20%;">
           <div class="card-body">
             <h5 id="day4" class="card-title"></h5>
-            <p class="card-text"></p>
+            <img id="day4Icon" alt="Weather Icon" >
+            <p id="day4Temp" class="card-text"></p>
+            <p id="day4Hum" class="card-text"></p>
           </div>
-        </div>
+        </section>
 
         <!-- Forecast in 5 days-->
-        <div class="card text-white bg-primary mb-3" style="max-width: 20%;">
+        <section class="card text-white bg-primary mb-3" style="max-width: 20%;">
           <div class="card-body">
             <h5 id="day5" class="card-title"></h5>
-            <p class="card-text"></p>
+            <img id="day5Icon" alt="Weather Icon" >
+            <p id="day5Temp" class="card-text"></p>
+            <p id="day5Hum" class="card-text"></p>
           </div>
-        </div>
-      </section>  <!-- End 5 day cards -->
+        </section>
+      </div>  <!-- End 5 day cards -->
     </main>  <!-- End Right side page -->
     
     <aside class="col-3">  <!-- Left side page -->
@@ -93,6 +101,8 @@
           <button id="addCity" type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
+    
+    </aside>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
