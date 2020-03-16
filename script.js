@@ -11,10 +11,17 @@ $(document).ready(function() {
           url: queryURL,
           method: "GET"
           }).then(function(response) {
+            // $(`#forcast1`).html(`
+            //   <p>Temperature: ${ response.weather[0].icon } <sup>o</sup>F</p>
+            // `)
+            // var weatherIcon = $( response.weather[0].id )
+            var link = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
+            // console.log(weatherIcon)
+            // alert(link)
             $(`#forcast`).html(`
                 <h2>${ response.name }</h2>
             `)
-            
+            $("#forcast2").attr("src",link);
             $(`#temp`).html(`
               <p>Temperature: ${ response.main.temp } <sup>o</sup>F</p>
             `)
@@ -27,17 +34,18 @@ $(document).ready(function() {
               <p>Wind Speed: ${ response.wind.speed } MPH</p>
             `)
           
-          var lon= $( response.coord.lon)
-          var lat= $( response.coord.lat )
-          var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat[0] + "&lon=" + lon[0];
-          $.ajax({
-            url: uvURL,
-            method: "GET"
-            }).then(function(responseUV) {
-              $(`#uvIndex`).html(`
-                <p>UV Index: ${ responseUV.value }</p>
-              `)
-            });    
+            var lon= $( response.coord.lon)
+            console.log(lon)
+            var lat= $( response.coord.lat )
+            var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat[0] + "&lon=" + lon[0];
+            $.ajax({
+              url: uvURL,
+              method: "GET"
+              }).then(function(responseUV) {
+                $(`#uvIndex`).html(`
+                  <p>UV Index: ${ responseUV.value }</p>
+                `)
+              });    
         });
         fiveDayForecast()
     }
