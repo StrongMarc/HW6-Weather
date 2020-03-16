@@ -25,3 +25,6 @@ main {
     float: right;
 }
 
+#uvIndex{
+  display: inline-block;
+}

@@ -19,14 +19,13 @@
         <h1 class="col">Weather Dashboard</h1>
       </div>
     </header>
-    
+
     <main class="col-9"> <!-- Right side page -->
       <!-- Bootstrap Card - Titles, text and links -->
       <div class="card" style="width: 100%;">
         <div class="card-body">
-          <p id="forcast1" class="card-text"></p>
-          <h2 id="forcast" class="card-title" style="display: inline-block"></h2>
-          <img id="forcast2" alt="Weather Icon" >
+          <h2 id="forecast" class="card-title" style="display: inline-block"></h2>
+          <img id="forecastIcon" alt="Weather Icon" >
           <br>
           <p id="temp" class="card-text"></p>
           <p id="humidity" class="card-text"></p>
@@ -83,6 +82,18 @@
       </section>  <!-- End 5 day cards -->
     </main>  <!-- End Right side page -->
     
+    <aside class="col-3">  <!-- Left side page -->
+      <!-- Bootstrap form -->
+      <form>
+        <div class="form-group row">
+          <label for="search">Search for a City:</label>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <button id="addCity" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

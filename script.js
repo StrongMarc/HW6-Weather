@@ -2,6 +2,7 @@ $(document).ready(function() {
    
   forecast()
 
+    // Function to retrieve forcast data and display in main card above
     function forecast() {
         var cityText = "Chicago";
         var unit = "&units=imperial"
@@ -11,17 +12,11 @@ $(document).ready(function() {
           url: queryURL,
           method: "GET"
           }).then(function(response) {
-            // $(`#forcast1`).html(`
-            //   <p>Temperature: ${ response.weather[0].icon } <sup>o</sup>F</p>
-            // `)
-            // var weatherIcon = $( response.weather[0].id )
             var link = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
-            // console.log(weatherIcon)
-            // alert(link)
-            $(`#forcast`).html(`
+            $(`#forecast`).html(`
                 <h2>${ response.name }</h2>
             `)
-            $("#forcast2").attr("src",link);
+            $("#forecastIcon").attr("src",link);
             $(`#temp`).html(`
               <p>Temperature: ${ response.main.temp } <sup>o</sup>F</p>
             `)
@@ -50,6 +45,7 @@ $(document).ready(function() {
         fiveDayForecast()
     }
 
+    // Function to retrieve 5 day forcast data and display below main card 
     function fiveDayForecast() {
       var cityText = "Chicago";
       var unit = "&units=imperial"
