@@ -85,19 +85,19 @@ $(document).ready(function() {
             method: "GET"
             }).then(function(responseUV) {
               var index = $( responseUV.value )[0]
-              // alert(index)
-              $('div')
-              $(`#uvIndex`).html(`
-                <p>UV Index: <span> ${ responseUV.value }</span></p>
-              `) 
+              uvColor (index)
             });    
       });
       fiveDayForecast(cityText)
   }
 
-  // function uvColor () {
-    
-  // }
+  //Function to call color
+  function uvColor (index) {
+    $(`#uvIndex`).html(`
+      <p>UV Index: <span> ${ index }</span></p>
+    `) 
+   
+  }
 
   // Function to retrieve 5 day forcast data and display below main card 
   function fiveDayForecast(cityText) {

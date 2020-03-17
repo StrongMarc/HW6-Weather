@@ -36,7 +36,8 @@ section {
 }
 
 span {
-  display: inline-block;
+  /* display: inline-block; */
   border-radius: 5px;
-  background-color: red;
+  background-color: lightgreen;
 }
+
