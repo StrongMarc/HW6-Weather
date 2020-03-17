@@ -35,9 +35,9 @@ section {
   font-size: 30px;
 }
 
-span {
+#uvIndex2 {
   /* display: inline-block; */
   border-radius: 5px;
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 }
 

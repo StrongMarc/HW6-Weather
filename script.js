@@ -91,14 +91,26 @@ $(document).ready(function() {
       fiveDayForecast(cityText)
   }
 
-  //Function to call color
   function uvColor (index) {
-    $(`#uvIndex`).html(`
-      <p>UV Index: <span> ${ index }</span></p>
+    alert(index)
+    if (index > 0 && index < 3 ) {
+      green (index)
+    }
+    else if (index > 3 && index < 5 ) {
+      yellow (index)
+    }
+    $(`#uvIndex2`).html(`
+      <span> ${ index }</span>
     `) 
-   
   }
 
+  function green(){
+    $("#uvIndex2").css({"background-color":"green"})
+  }
+  function yellow(){
+    $("#uvIndex2").css({"background-color":"yellow"})
+  }
+  
   // Function to retrieve 5 day forcast data and display below main card 
   function fiveDayForecast(cityText) {
     var unit = "&units=imperial"
