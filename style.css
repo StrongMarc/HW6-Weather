@@ -30,7 +30,13 @@ section {
   margin: 20px;
 }
 
+#currentDay{
+  background-color: white;
+  font-size: 30px;
+}
+
 span {
   display: inline-block;
   border-radius: 5px;
+  background-color: red;
 }

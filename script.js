@@ -60,6 +60,8 @@ $(document).ready(function() {
           $(`#forecast`).html(`
               <h2>${ response.name }</h2>
           `)
+          var now = moment();
+          $("#currentDay").text(now.format('l'))
           $("#forecastIcon").attr("src",link);
           $(`#temp`).html(`
             <p>Temperature: ${ response.main.temp } <sup>o</sup>F</p>
@@ -109,7 +111,7 @@ $(document).ready(function() {
         //Tomorrow's forecast
         var link = "http://openweathermap.org/img/wn/" + responseForcast.list[7].weather[0].icon + "@2x.png"
         $(`#day1`).html(`
-            <h5>${ responseForcast.list[7].dt_txt.slice(5, 7) }/${ responseForcast.list[7].dt_txt.slice(8, 10) }/${ responseForcast.list[7].dt_txt.slice(0, 4) }</h5>
+            <h5>${ responseForcast.list[5].dt_txt.slice(5, 7) }/${ responseForcast.list[5].dt_txt.slice(8, 10) }/${ responseForcast.list[5].dt_txt.slice(0, 4) }</h5>
         `)
         $("#day1Icon").attr("src",link);
         $(`#day1Temp`).html(`
@@ -122,7 +124,7 @@ $(document).ready(function() {
         //Day 2 forecast
         var link = "http://openweathermap.org/img/wn/" + responseForcast.list[15].weather[0].icon + "@2x.png"
         $(`#day2`).html(`
-            <h5>${ responseForcast.list[15].dt_txt.slice(5, 7) }/${ responseForcast.list[15].dt_txt.slice(8, 10) }/${ responseForcast.list[15].dt_txt.slice(0, 4) }</h5>
+            <h5>${ responseForcast.list[13].dt_txt.slice(5, 7) }/${ responseForcast.list[13].dt_txt.slice(8, 10) }/${ responseForcast.list[13].dt_txt.slice(0, 4) }</h5>
         `)
         $("#day2Icon").attr("src",link);
         $(`#day2Temp`).html(`
@@ -135,7 +137,7 @@ $(document).ready(function() {
         //Day 3 forecast
         var link = "http://openweathermap.org/img/wn/" + responseForcast.list[23].weather[0].icon + "@2x.png"
         $(`#day3`).html(`
-            <h5>${ responseForcast.list[23].dt_txt.slice(5, 7) }/${ responseForcast.list[23].dt_txt.slice(8, 10) }/${ responseForcast.list[23].dt_txt.slice(0, 4) }</h5>
+            <h5>${ responseForcast.list[21].dt_txt.slice(5, 7) }/${ responseForcast.list[21].dt_txt.slice(8, 10) }/${ responseForcast.list[21].dt_txt.slice(0, 4) }</h5>
         `)
         $("#day3Icon").attr("src",link);
         $(`#day3Temp`).html(`
@@ -148,7 +150,7 @@ $(document).ready(function() {
         //Day 4 forecast
         var link = "http://openweathermap.org/img/wn/" + responseForcast.list[31].weather[0].icon + "@2x.png"
         $(`#day4`).html(`
-            <h5>${ responseForcast.list[31].dt_txt.slice(5, 7) }/${ responseForcast.list[31].dt_txt.slice(8, 10) }/${ responseForcast.list[31].dt_txt.slice(0, 4) }</h5>
+            <h5>${ responseForcast.list[29].dt_txt.slice(5, 7) }/${ responseForcast.list[29].dt_txt.slice(8, 10) }/${ responseForcast.list[29].dt_txt.slice(0, 4) }</h5>
         `)
         $(`#day4Temp`).html(`
             <p>Temp: ${ responseForcast.list[31].main.temp } <sup>o</sup>F</p>
@@ -161,7 +163,7 @@ $(document).ready(function() {
         //Day 5 forecast
         var link = "http://openweathermap.org/img/wn/" + responseForcast.list[39].weather[0].icon + "@2x.png"
         $(`#day5`).html(`
-            <h5>${ responseForcast.list[39].dt_txt.slice(5, 7) }/${ responseForcast.list[39].dt_txt.slice(8, 10) }/${ responseForcast.list[39].dt_txt.slice(0, 4) }</h5>
+            <h5>${ responseForcast.list[37].dt_txt.slice(5, 7) }/${ responseForcast.list[37].dt_txt.slice(8, 10) }/${ responseForcast.list[37].dt_txt.slice(0, 4) }</h5>
         `)
         $("#day5Icon").attr("src",link);
         $(`#day5Temp`).html(`
