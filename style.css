@@ -30,6 +30,7 @@ section {
   margin: 20px;
 }
 
-#uvIndex{
+span {
   display: inline-block;
+  border-radius: 5px;
 }
