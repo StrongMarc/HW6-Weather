@@ -1,7 +1,7 @@
 $(document).ready(function() {
    
   var cities = [];
-  // function to display cities buttons using for loop
+  // function to display cities buttons using for loop.. similar to class activities 06-#10
   function rendercity() {
     $(`#cityList`).empty()
     for (var i = 0; i < cities.length; i++) {
@@ -13,7 +13,7 @@ $(document).ready(function() {
     }
     // forecast()
   }
-  // function to display cities buttons using forEach
+  // function to display cities buttons using forEach.. similar to class activities example 06-#7
   // function rendercity() {
   //   $(`#cityList`).empty()
   //   cities.forEach(function(cities){
@@ -22,7 +22,7 @@ $(document).ready(function() {
   //   })
   // }
 
-  // Function to add city to array 
+  // Function to add city to array.. similar to class activities 06-#10
   $("#addCity").on("click", function(event) {
     event.preventDefault();
     var city = $("#inputCity").val().trim();
@@ -116,7 +116,7 @@ $(document).ready(function() {
     `) 
   }
 
-  //Functions for UV index css background colors 
+  //Functions for UV index css background colors ..https://www.w3schools.com/jquery/css_css.asp
   function green(){
     $("#uvIndex2").css({"background-color":"green"})
   }
@@ -133,7 +133,7 @@ $(document).ready(function() {
     $("#uvIndex2").css({"background-color":"violet"})
   }
   
-  // Function to retrieve 5 day forcast data and display below main card 
+  // Function to retrieve 5 day forcast data and display below main card.. similar to class activities 06-#10
   function fiveDayForecast(cityText) {
     var unit = "&units=imperial"
     var key = "cedb9c57ccdd0a6a3213271aa94438a7"
@@ -146,7 +146,7 @@ $(document).ready(function() {
         var link = "http://openweathermap.org/img/wn/" + responseForcast.list[7].weather[0].icon + "@2x.png"
         $(`#day1`).html(`
             <h5>${ responseForcast.list[5].dt_txt.slice(5, 7) }/${ responseForcast.list[5].dt_txt.slice(8, 10) }/${ responseForcast.list[5].dt_txt.slice(0, 4) }</h5>
-        `)
+        `) //https://www.w3schools.com/jsref/jsref_slice_string.asp
         $("#day1Icon").attr("src",link);
         $(`#day1Temp`).html(`
             <p>Temp: ${ responseForcast.list[7].main.temp } <sup>o</sup>F</p>
