@@ -51,12 +51,12 @@ $(document).ready(function() {
   function forecast(cityText) {
       var unit = "&units=imperial"
       var key = "cedb9c57ccdd0a6a3213271aa94438a7"
-      var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityText + unit + "&appid=" + key;
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityText + unit + "&appid=" + key;
       $.ajax({
         url: queryURL,
         method: "GET"
         }).then(function(response) {
-          var link = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
+          var link = "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
           $(`#forecast`).html(`
               <h2>${ response.name }</h2>
           `)
@@ -78,7 +78,7 @@ $(document).ready(function() {
           var lon= $( response.coord.lon)
           
           var lat= $( response.coord.lat )
-          var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat[0] + "&lon=" + lon[0];
+          var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat[0] + "&lon=" + lon[0];
         //  alert(uvURL)
           $.ajax({
             url: uvURL,
@@ -137,7 +137,7 @@ $(document).ready(function() {
   function fiveDayForecast(cityText) {
     var unit = "&units=imperial"
     var key = "cedb9c57ccdd0a6a3213271aa94438a7"
-    var fiveDayURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityText + unit + "&appid=" + key;
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityText + unit + "&appid=" + key;
     $.ajax({
       url: fiveDayURL,
       method: "GET"
@@ -156,7 +156,7 @@ $(document).ready(function() {
         `)
 
         //Day 2 forecast
-        var link = "http://openweathermap.org/img/wn/" + responseForcast.list[15].weather[0].icon + "@2x.png"
+        var link = "https://openweathermap.org/img/wn/" + responseForcast.list[15].weather[0].icon + "@2x.png"
         $(`#day2`).html(`
             <h5>${ responseForcast.list[13].dt_txt.slice(5, 7) }/${ responseForcast.list[13].dt_txt.slice(8, 10) }/${ responseForcast.list[13].dt_txt.slice(0, 4) }</h5>
         `)
@@ -169,7 +169,7 @@ $(document).ready(function() {
         `)
 
         //Day 3 forecast
-        var link = "http://openweathermap.org/img/wn/" + responseForcast.list[23].weather[0].icon + "@2x.png"
+        var link = "https://openweathermap.org/img/wn/" + responseForcast.list[23].weather[0].icon + "@2x.png"
         $(`#day3`).html(`
             <h5>${ responseForcast.list[21].dt_txt.slice(5, 7) }/${ responseForcast.list[21].dt_txt.slice(8, 10) }/${ responseForcast.list[21].dt_txt.slice(0, 4) }</h5>
         `)
@@ -182,7 +182,7 @@ $(document).ready(function() {
         `)
 
         //Day 4 forecast
-        var link = "http://openweathermap.org/img/wn/" + responseForcast.list[31].weather[0].icon + "@2x.png"
+        var link = "https://openweathermap.org/img/wn/" + responseForcast.list[31].weather[0].icon + "@2x.png"
         $(`#day4`).html(`
             <h5>${ responseForcast.list[29].dt_txt.slice(5, 7) }/${ responseForcast.list[29].dt_txt.slice(8, 10) }/${ responseForcast.list[29].dt_txt.slice(0, 4) }</h5>
         `)
@@ -195,7 +195,7 @@ $(document).ready(function() {
         `)
 
         //Day 5 forecast
-        var link = "http://openweathermap.org/img/wn/" + responseForcast.list[39].weather[0].icon + "@2x.png"
+        var link = "https://openweathermap.org/img/wn/" + responseForcast.list[39].weather[0].icon + "@2x.png"
         $(`#day5`).html(`
             <h5>${ responseForcast.list[37].dt_txt.slice(5, 7) }/${ responseForcast.list[37].dt_txt.slice(8, 10) }/${ responseForcast.list[37].dt_txt.slice(0, 4) }</h5>
         `)
