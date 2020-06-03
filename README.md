@@ -12,4 +12,4 @@ Created Weather Dashboard that shows the following:
 4. Also when you submit the city, a button is created for each new city.  The button can be clicked to display again the weather forecast and 5 day forecast
 
 ##### Webpage screenshot
-![Image of Weather Dashboard](Assets/images/weather.PNG)
+![Image of Weather Dashboard](02-Homework/Assets/images/weather.PNG)
